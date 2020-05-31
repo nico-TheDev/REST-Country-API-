@@ -9,13 +9,14 @@ const domElements = {
     themeBtn: document.querySelector(".nav__theme"),
 };
 
+
 async function getData() {
     try {
         const data = await fetch(`https://restcountries.eu/rest/v2/all
         `);
         const countriesData = await data.json();
 
-        console.log(countriesData);
+        // console.log(countriesData);
 
         renderResults(countriesData);
     } catch (err) {
@@ -29,7 +30,7 @@ async function getCountryByRegion(region) {
             `https://restcountries.eu/rest/v2/region/${region}`
         );
         const countries = await data.json();
-        console.log(countries);
+        // console.log(countries);
         renderResults(countries);
     } catch (error) {}
 }
@@ -40,10 +41,9 @@ async function getCountryByName(countryName) {
             `https://restcountries.eu/rest/v2/name/${countryName}`
         );
         const countries = await data.json();
-        console.log(countries);
+        // console.log(countries);
         renderResults(countries);
     } catch (err) {
-        console.log(err);
         alert("No country by that name");
     }
 }
@@ -51,7 +51,7 @@ async function getCountryByName(countryName) {
 async function getCountryData(code) {
     const data = await fetch(`https://restcountries.eu/rest/v2/alpha/${code}`);
     const countryData = await data.json();
-    console.log(countryData);
+    // console.log(countryData);
     renderCountryData(countryData);
 }
 
@@ -160,10 +160,15 @@ function clearDetailsPanel() {
     domElements.countryDetails.innerHTML = "";
 }
 
-function backToMain() {
-    domElements.header.style.display = "block";
-    domElements.resultPanel.style.display = "none";
-    getData();
+function backToMain(e) {
+
+    if(e.target.className.includes('back')){
+        domElements.header.style.display = "block";
+        domElements.resultPanel.style.display = "none";
+        window.location.hash.replace()
+        history.pushState(1,'','index.html');
+        getData();
+    }
 }
 
 function formatNumber(x) {
