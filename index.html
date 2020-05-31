@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where in the world?</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <h1 class="nav__logo">Where in the world?</h1>
+            <button class="nav__theme">
+                <svg class="icon">
+                    <use xlink:href="./img/sprites.svg#icon-moon"></use>
+                </svg>
+                Dark Mode
+            </button>
+        </div>
+    </nav>
+    <header class="header dark-mode">
+        <div class="container">
+            <div class="search">
+                <div class="search__field">
+                    <label for="name" class="search__icon">
+                        <svg class="icon">
+                            <use xlink:href="./img/sprites.svg#icon-search"></use>
+                        </svg>
+                    </label>
+                    <input type="text" class="search__input" id='name' placeholder="Search for a country...">
+                </div>
+                <div class="search__type">
+                    <select class="search__region">
+                        <option value="all" selected='selected'>Filter by Region</option>
+                        <option value="africa">Africa</option>
+                        <option value="americas">America</option>
+                        <option value="asia">Asia</option>
+                        <option value="europe">Europe</option>
+                        <option value="oceania">Oceania</option>
+                    </select>
+                    <svg class="icon down">
+                        <use xlink:href="./img/sprites.svg#icon-down"></use>
+                    </svg>
+                </div>
+            </div>
+            <!-- END OF SEARCH -->
+            <div class="countries">
+
+                <div class="loader"></div>
+                <!-- <a class="card" href="#${}">
+                    <div class="card__cover">
+                        <img src="img/sample.jpg" alt="" class="card__img">
+                    </div>
+                    <div class="card__text">
+                        <h3 class="card__name">Japan</h3>
+                        <p class="card__population">Population: <span class="population-count">213123313</span></p>
+                        <p class="card__region">Region: <span class="region-name">Asia</span></p>
+                        <p class="card__capital">Capital: <span class="capital-name">Tokyo</span></p>
+                    </div>
+                </a> -->
+            </div>
+        </div>
+    </header>
+
+    <!-- END OF HEADER -->
+
+    <div class="result">
+        <div class="container">
+            <button class="back">
+                <svg class="icon">
+                    <use xlink:href="./img/sprites.svg#icon-arrow-left"></use>
+                </svg>
+                Back
+            </button>
+
+            <div class="details">
+                <!-- <div class="details__cover">
+                    <img src="./img/sample.jpg" alt="sample" class="details__img">
+                </div>
+
+                <div class="details__text">
+                    <h3 class="details__name">Japan</h3>
+                    <div class="details__info">
+                        <p class="details__native">Native Name:Belgie</p>
+                        <p class="details__population">Population:1231231232</p>
+                        <p class="details__region">Region:Europe</p>
+                        <p class="details__subregion">Sub Region: Western Europe</p>
+                        <p class="details__capital">Capital: Brussels</p>
+                        <div class="space"></div>
+                        <p class="details__domain">Top Level Domain:.be</p>
+                        <p class="details__currency">Currencies:Euro</p>
+                        <p class="details__language">Languages:Dutch,French,German</p>
+                    </div>
+                    <div class="space"></div>
+
+                    <div class="details__related">
+                        <span>Border Countries:</span>
+                        <button class="details__relation">France</button>
+                        <button class="details__relation">Germany</button>
+                        <button class="details__relation">Netherlands</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
