@@ -341,6 +341,14 @@ button {
     transition: 300ms;
 }
 
+.error-message{
+    border:2px solid currentColor;
+    color:crimson;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
 // STATE CLASSES
 
 .lightModeBg{

@@ -9,7 +9,6 @@ const domElements = {
     themeBtn: document.querySelector(".nav__theme"),
 };
 
-
 async function getData() {
     try {
         const data = await fetch(`https://restcountries.eu/rest/v2/all
@@ -44,7 +43,15 @@ async function getCountryByName(countryName) {
         // console.log(countries);
         renderResults(countries);
     } catch (err) {
-        alert("No country by that name");
+        console.log(err);
+        const errorMessage = document.createElement('p');
+        errorMessage.className = 'error-message';
+        errorMessage.appendChild(document.createTextNode('Country not found!'));
+        domElements.countryPanel.insertAdjacentElement('beforebegin',errorMessage);
+
+        setTimeout(()=>{
+            errorMessage.remove();
+        },1000);
     }
 }
 
@@ -141,12 +148,13 @@ function displayCountryData() {
 
 function showBorderCountries(arr) {
     let markup = ``;
+
     if (arr.length === 0) {
         markup = "<p>No borders</p>";
     } else {
         arr.forEach((code) => {
             markup += `<a class="details__relation" href="#${code}">${code}</a>`;
-        });
+        });  
     }
 
     return markup;
@@ -161,12 +169,11 @@ function clearDetailsPanel() {
 }
 
 function backToMain(e) {
-
-    if(e.target.className.includes('back')){
+    if (e.target.className.includes("back")) {
         domElements.header.style.display = "block";
         domElements.resultPanel.style.display = "none";
-        window.location.hash.replace()
-        history.pushState(1,'','index.html');
+        window.location.hash.replace();
+        history.pushState(1, "", "index.html");
         getData();
     }
 }
